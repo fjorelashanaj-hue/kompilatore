@@ -1,9 +1,5 @@
-import java.util.Scanner;
-
 public class ReadInstruction extends Instruction {
     private String varName;
-    
-    private static Scanner scanner = new Scanner(System.in);
 
     public ReadInstruction(String varName) {
         this.varName = varName;
@@ -12,8 +8,8 @@ public class ReadInstruction extends Instruction {
     @Override
     public void exec() {
         System.out.print("Vendos vleren per " + varName + ": ");
-        int value = scanner.nextInt();
-        
+        int value = Memory.scanner.nextInt();
+        Memory.scanner.nextLine(); 
         Memory.variables.put(varName, value);
     }
 }
